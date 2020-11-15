@@ -2,4 +2,8 @@
 
 How to build machine *machine* (in `nixos-config/machines/*machine*/`):
 
-```make machine=*machine* build_standalone```
+```make MACHINE=*machine* build```
+
+e.g.
+
+```make MACHINE=gate build```
