@@ -48,7 +48,7 @@ let
           inherit lib name pkgs;
           config = eval.config;
           contents = [];
-          diskSize = 2048;
+          diskSize = 4096;
           format = "qcow2";
           postVM = ''
             extension=''${diskImage##*.}
@@ -77,7 +77,7 @@ let
       chmod u+w nixos.qcow2
 
       trap "rm -f nixos.qcow2" EXIT
-      ${pkgs.qemu}/bin/qemu-system-x86_64 --cpu host --enable-kvm -drive file=nixos.qcow2 -m 2048 -nographic -nic user,hostfwd=tcp::10022-:22,hostfwd=tcp::8000-:8000,hostfwd=tcp::8080-:80
+      ${pkgs.qemu}/bin/qemu-system-x86_64 --cpu host --enable-kvm -drive file=nixos.qcow2 -m 4096 -nographic -nic user,hostfwd=tcp::10022-:22,hostfwd=tcp::8000-:8000,hostfwd=tcp::8080-:80
     '';
   };
 in
